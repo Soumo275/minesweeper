@@ -2,7 +2,7 @@ const random = [];
 const all_value=[];
 
 function createbomb(){
-
+    var x=document.getElementById('m').innerHTML="";
     while (random. length > 0) { random. pop(); };
 
     for (let i = 0; i < 10; i++) {
@@ -17,8 +17,8 @@ function createbomb(){
 
     }
     for(let i = 0; i < 10; i++){
-        var x=document.getElementById('n');
-    x.innerHTML=x.innerHTML+" "+random[i];
+        var x=document.getElementById('m');
+        x.innerHTML=x.innerHTML+" "+random[i];
     }
 };
 
@@ -96,7 +96,7 @@ function createboxes(){
                 
 
 
-               board.innerHTML += "<button id=" + c + " onClick='reveal(this.id)'> </button>";
+               board.innerHTML += "<button id=" + c + " onClick='reveal(this.id)'>" +c+" </button>";
                 c++;
 
         }
