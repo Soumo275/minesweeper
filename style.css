@@ -1,8 +1,9 @@
 *{
-    padding: 10px;
+    padding: 0px;
     text-align: center;
     justify-content: center;
     align-items: center;
+    
 
 }
 
@@ -12,9 +13,12 @@ button{
     margin: 3px;
     height: 40px;
     width: 40px;
+    background-color: red;
+    color: rgba(0, 0, 0, 0);
     
 }
 button:hover{
     background-color: rgba(165, 42, 42, 0.308);
+    color:rgba(165, 42, 42, 0);
 }
 
