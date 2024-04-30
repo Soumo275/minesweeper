@@ -14,4 +14,7 @@ button{
     width: 40px;
     
 }
+button:hover{
+    background-color: rgba(165, 42, 42, 0.308);
+}
 
