@@ -1,6 +1,8 @@
 const random = [];
 const all_value=[];
 
+
+//generating 10 random non repeating numbers as positions of bombs
 function createbomb(){
     var x=document.getElementById('m').innerHTML="";
     while (random. length > 0) { random. pop(); };
@@ -22,6 +24,7 @@ function createbomb(){
     }
 };
 
+//putting values inside the boxes according to the number of bombs present around 
 function checkvalue(c,i,j){
 
     let neighbour=[]
@@ -29,17 +32,17 @@ function checkvalue(c,i,j){
     if(i-1>=0){
         neighbour.push(c-7);
         if(j-1>=0)neighbour.push(c-7-1);
-        if(j+1<=6)neighbour.push(c-7+1);
+        if(j+1<7)neighbour.push(c-7+1);
     }
 
-    if(i+1<=6){
+    if(i+1<7){
         neighbour.push(c+7);
         if(j-1>=0)neighbour.push(c+7-1);
-        if(j+1<=6)neighbour.push(c+7+1);
+        if(j+1<7)neighbour.push(c+7+1);
     }
 
     if(j-1>=0)neighbour.push(c-1);
-    if(j+1<=6)neighbour.push(c+1);
+    if(j+1<7)neighbour.push(c+1);
     
 
     var count=0;
@@ -54,23 +57,44 @@ function checkvalue(c,i,j){
     else 
         return count;
 
-    
+};
+
+//check if bomb is clicked
+function checkbomb(val){
+    if(all_value[val]==='X')
+        alert('bomb clickd , womp womp!')
+}
+
+// is a sqare is clicked
+function clicked_box(tile){
+    reveal(tile);
+    reveal_neighbour(tile);
 
 };
 
+
+//revealing the square if clicked
 function reveal(tile){
 
     var x=document.getElementById('n');
     x.innerHTML=tile;
-    
     document.getElementById(tile).innerHTML=all_value[tile];
     document.getElementById(tile).style.backgroundColor='lightgreen';
     document.getElementById(tile).style.color='black';
-    
-
+    document.getElementById(tile).disabled=true; // disable the button after click
+    checkbomb(tile);
 };
 
 
+//have to complete
+// revealing neighbouring sqares 
+function reveal_neighbour(c){
+    let i=(c+1)/7;
+    let j=(c+1)%7;
+}
+
+
+//creating the boxes using buttons and nested loops
 function createboxes(){
 
     var i,j;
@@ -96,7 +120,7 @@ function createboxes(){
                 
 
 
-               board.innerHTML += "<button id=" + c + " onClick='reveal(this.id)'>" +c+" </button>";
+               board.innerHTML += "<button id=" + c + " onClick='clicked_box(this.id)'>" +c+" </button>";
                 c++;
 
         }
