@@ -79,8 +79,14 @@ function reveal(tile){
     var x=document.getElementById('n');
     x.innerHTML=tile;
     document.getElementById(tile).innerHTML=all_value[tile];
-    document.getElementById(tile).style.backgroundColor='lightgreen';
+
+    if(all_value[tile]==='X')
+        document.getElementById(tile).style.backgroundColor='yellow';
+    else   
+        document.getElementById(tile).style.backgroundColor='lightgreen';
+
     document.getElementById(tile).style.color='black';
+
     document.getElementById(tile).disabled=true; // disable the button after click
     checkbomb(tile);
 };
