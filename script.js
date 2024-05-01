@@ -11,7 +11,7 @@ function createbomb(){
     
     let num=Math.floor(Math.random() * 49);
 
-    if( random.includes(num) && num==24){
+    if( random.includes(num) || num==24){
         i--;
     }
     else
@@ -138,6 +138,8 @@ function createboxes(){
     var board=document.getElementById("board");
     board.innerHTML="";
     let c=0;
+    while (random. length > 0) { random. pop(); };
+    while(all_value.length>0){all_value.pop()};
     createbomb();
 
     for(i=0;i<7;i++){
