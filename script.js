@@ -59,10 +59,39 @@ function checkvalue(c,i,j){
 
 };
 
+
+function gameover(){
+    let c=0;
+    var tile=document.getElementById(c);
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+
+            var tile=document.getElementById(c);
+            
+            tile.innerHTML=all_value[c];
+
+            if(all_value[c]==='X')
+            tile.style.backgroundColor='tomato';
+            else   
+            tile.style.backgroundColor='lightgreen';
+
+            tile.style.color='black';
+
+            tile.disabled=true; // disable the button after click
+            c++;
+        }
+    }
+
+}
+
 //check if bomb is clicked
 function checkbomb(val){
-    if(all_value[val]==='X')
+    if(all_value[val]==='X'){
         alert('bomb clickd , womp womp!')
+        gameover();
+    }
+        
+    
 }
 
 // is a sqare is clicked
