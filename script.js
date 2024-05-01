@@ -60,7 +60,8 @@ function checkvalue(c,i,j){
 };
 
 
-function gameover(){
+//add diff colour to the one clicked  
+function gameover(clicked_tile){
     let c=0;
     var tile=document.getElementById(c);
     for(i=0;i<7;i++){
@@ -81,6 +82,7 @@ function gameover(){
             c++;
         }
     }
+    document.getElementById(clicked_tile).style.backgroundColor='yellow';
 
 }
 
@@ -88,7 +90,7 @@ function gameover(){
 function checkbomb(val){
     if(all_value[val]==='X'){
         alert('bomb clickd , womp womp!')
-        gameover();
+        gameover(val);
     }
         
     
